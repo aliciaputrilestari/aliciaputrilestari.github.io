@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Coding Dart - Alicia Putri Lestari</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f4f6f9;
+}
+
+/* CARD */
+.kotak {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* BUTTON */
+.tombol-biasa {
+    margin: 15px 0;
+    padding: 10px 18px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tombol-biasa:hover {
+    background: #125aa0;
+}
+
+/* POPUP BACKGROUND */
+.popup-bg {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* POPUP CONTENT */
+.popup-konten {
+    background-color: white;
+    width: 100%;
+    max-width: 1100px;
+    height: 90vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* CLOSE BUTTON */
+.tutup-btn {
+    padding: 8px 15px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+/* IFRAME */
+iframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    .popup-konten {
+        height: 95vh;
+    }
+
+    .tombol-biasa {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="kotak">
+
+<h2>Latihan Coding Dart</h2>
+<h3>Alicia Putri Lestari</h3>
+
+<p>
+Program ini menampilkan hasil perhitungan Fibonacci ke-20 menggunakan fungsi rekursif di Dart.
+Gambar di bawah merupakan hasil eksekusi program pada DartPad.
+</p>
+
+<button class="tombol-biasa" onclick="bukaPopup()">
+Lihat Source Code di DartPad
+</button>
+
+<!-- PATH GAMBAR YANG BENAR 100% -->
+<img src="images/fibonacci.png" alt="Output DartPad">
+
+</div>
+
+<!-- POPUP -->
+<div id="popupDart" class="popup-bg">
+    <div class="popup-konten">
+        <button class="tutup-btn" onclick="tutupPopup()">Tutup</button>
+        <iframe id="iframeCia"></iframe>
+    </div>
+</div>
+
+<script>
+function bukaPopup() {
+    document.getElementById('popupDart').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    var iframe = document.getElementById('iframeCia');
+    iframe.src = "https://dartpad.dev/embed-dart.html?id=0aee7e1279092219b5ded90d872784b8";
+}
+
+function tutupPopup() {
+    document.getElementById('popupDart').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('iframeCia').src = "";
+}
+</script>
+
+</body>
+</html>
