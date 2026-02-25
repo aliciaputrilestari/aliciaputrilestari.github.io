@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Coding Dart</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    button {
+      background: #1d4ed8;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 15px 0;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      display: block;
+      margin: 10px auto;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup iframe {
+      width: 90%;
+      height: 70%;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px; right: 20px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #dc2626;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    @media(max-width: 600px) {
+      .popup iframe {
+        height: 60%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Latihan Coding Dart</h1>
+    <h2>Alicia Putri Lestari</h2>
+
+    <p>
+      Program ini menampilkan hasil Fibonacci ke-20
+      menggunakan fungsi rekursif di Dart.
+    </p>
+
+    <button onclick="openPopup()">Lihat Source Code di DartPad</button>
+
+    <!-- GAMBAR OUTPUT -->
+    <img src="images/output-dartpad.png" alt="Output DartPad">
+  </div>
+
+  <!-- POPUP DARTPAD -->
+  <div class="popup" id="popup">
+    <button class="close-btn" onclick="closePopup()">✖ Close</button>
+    <iframe src="https://dartpad.dev/embed-flutter.html" title="DartPad Flutter code editor"></iframe>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // Optional: klik di luar iframe menutup popup
+    document.getElementById("popup").addEventListener("click", function(e) {
+      if(e.target === this) {
+        closePopup();
+      }
+    });
+  </script>
+
+</body>
+</html>
