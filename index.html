@@ -1,16 +1,81 @@
-<section class="tugas">
-  <h2>Program Fibonacci</h2>
-  
-  <p class="deskripsi">
-    Program ini menghitung bilangan Fibonacci ke-n menggunakan fungsi rekursif.
-    Output menampilkan hasil fibonacci(20).
-  </p>
+<!DOCTYPE html>
+<html>
 
-  <button class="btn-source" onclick="openModal()">
-    Lihat Source Code
-  </button>
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Coding Dart - Alicia Putri Lestari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
-  <div class="gambar-wrapper">
-    <img src="images/fibonacci.png" alt="Output DartPad Fibonacci">
-  </div>
-</section>
+        .popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .popup-konten {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            border: 1px solid #ccc;
+        }
+
+        iframe {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Latihan Coding Dart</h2>
+    <h3>Alicia Putri Lestari</h3>
+
+    <p>
+        Ini adalah deskripsi latihan coding Dart saya.
+        Program ini menampilkan output dasar di konsol DartPad.
+    </p>
+
+    <p>
+        Gambar hasil output: <br>
+        <img src="gambar.jpg" alt="Output" style="max-width: 100%; border: 1px solid #ccc; margin-top: 10px;">
+    </p>
+
+    <button class="tombol-biasa" onclick="bukaPopup()">Lihat Source Code di DartPad</button>
+
+
+    <div id="popupDart" class="popup-bg">
+        <div class="popup-konten">
+            <button onclick="tutupPopup()" style="margin-bottom: 10px; cursor: pointer;">Tutup</button>
+            <iframe id="iframeCia" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        function bukaPopup() {
+            document.getElementById('popupDart').style.display = 'block';
+            var iframe = document.getElementById('iframeCia');
+            if (iframe.src === "" || iframe.src === window.location.href) {
+                iframe.src = "https://dartpad.dev/embed-dart.html?id=0aee7e1279092219b5ded90d872784b8";
+            }
+        }
+        function tutupPopup() {
+            document.getElementById('popupDart').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
