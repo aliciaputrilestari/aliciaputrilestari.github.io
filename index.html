@@ -1,123 +1,135 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Latihan Coding Dart</title>
+  <title>Tugas Dart - Tema Pink Lucu</title>
+
   <style>
     body {
-      background: #0f172a;
-      color: white;
-      font-family: Arial, sans-serif;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #ff9ecf, #ffcce6);
+      margin: 0;
+      padding: 40px 20px;
       text-align: center;
-      padding: 20px;
     }
 
     .card {
-      background: #1e293b;
-      padding: 20px;
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(255,105,180,0.4);
+      border: 3px dashed #ff69b4;
+    }
+
+    h1 {
+      color: #ff1493;
+    }
+
+    .desc {
+      background: #ffe6f2;
+      padding: 15px;
       border-radius: 15px;
-      max-width: 500px;
-      margin: 20px auto;
+      margin-bottom: 20px;
+      color: #c71585;
+      font-weight: bold;
     }
 
     button {
-      background: #1d4ed8;
+      background: #ff69b4;
       color: white;
-      padding: 12px 20px;
       border: none;
-      border-radius: 8px;
+      padding: 12px 25px;
+      border-radius: 20px;
+      font-size: 16px;
       cursor: pointer;
-      margin: 15px 0;
-      transition: background 0.3s;
+      transition: 0.3s;
     }
 
     button:hover {
-      background: #2563eb;
+      background: #ff1493;
+      transform: scale(1.05);
     }
 
     img {
       width: 100%;
-      max-width: 100%;
-      border-radius: 10px;
-      display: block;
-      margin: 10px auto;
+      border-radius: 20px;
+      margin-top: 20px;
+      border: 4px solid #ffb6c1;
     }
 
+    /* Popup */
     .popup {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
-      z-index: 1000;
     }
 
-    .popup iframe {
-      width: 90%;
-      height: 70%;
-      border-radius: 10px;
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 800px;
+      position: relative;
     }
 
-    .close-btn {
+    .close {
       position: absolute;
-      top: 20px; right: 20px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background: #dc2626;
-      color: white;
+      right: 15px;
+      top: 10px;
+      font-size: 22px;
       cursor: pointer;
-      font-size: 16px;
+      color: #ff1493;
     }
 
-    @media(max-width: 600px) {
-      .popup iframe {
-        height: 60%;
-      }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 15px;
+      border: none;
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
-    <h1>Latihan Coding Dart</h1>
-    <h2>Alicia Putri Lestari</h2>
+    <h1>💗 Tugas Dart Marsya 💗</h1>
 
-    <p>
-      Program ini menampilkan hasil Fibonacci ke-20
-      menggunakan fungsi rekursif di Dart.
-    </p>
+    <div class="desc">
+      Program Dart untuk menampilkan output perhitungan sederhana.
+    </div>
 
-    <button onclick="openPopup()">Lihat Source Code di DartPad</button>
+    <button onclick="bukaPopup()">🌸 Lihat Source Code 🌸</button>
 
-    <!-- GAMBAR OUTPUT -->
-    <img src="output.png" alt="Output DartPad">
+    <!-- GANTI gambar ini dengan capture output kamu -->
+    <img src="hasil.png" alt="Output Program">
   </div>
 
-  <!-- POPUP DARTPAD -->
+  <!-- Popup -->
   <div class="popup" id="popup">
-    <button class="close-btn" onclick="closePopup()">✖ Close</button>
-    <iframe src="https://dartpad.dev/embed-flutter.html" title="DartPad Flutter code editor"></iframe>
+    <div class="popup-content">
+      <span class="close" onclick="tutupPopup()">✖</span>
+
+      <!-- DartPad -->
+      <iframe src="https://dartpad.dev/embed-flutter.html"></iframe>
+
+    </div>
   </div>
 
   <script>
-    function openPopup() {
+    function bukaPopup() {
       document.getElementById("popup").style.display = "flex";
     }
 
-    function closePopup() {
+    function tutupPopup() {
       document.getElementById("popup").style.display = "none";
     }
-
-    // Optional: klik di luar iframe menutup popup
-    document.getElementById("popup").addEventListener("click", function(e) {
-      if(e.target === this) {
-        closePopup();
-      }
-    });
   </script>
 
 </body>
